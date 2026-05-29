@@ -1,0 +1,18 @@
+{
+  "name": "@ellescript/apa",
+  "version": "0.0.1",
+  "description": "APA citations formater",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ellescript/collecty": "^0.0.9"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
