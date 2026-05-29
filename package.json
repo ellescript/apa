@@ -5,14 +5,22 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "rollup -c"
   },
-  "author": "",
+  "author": "Cristian Emanuelle Guzmán Suárez",
   "license": "ISC",
   "dependencies": {
     "@ellescript/collecty": "^0.0.9"
   },
   "devDependencies": {
-    "jest": "^30.4.2"
-  }
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "jest": "^30.4.2",
+    "rollup": "^4.60.4"
+  },
+
+  "files": [
+    "dist"
+  ]
 }
