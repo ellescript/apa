@@ -2,8 +2,16 @@
   "name": "@ellescript/apa",
   "version": "0.0.1",
   "description": "APA citations formater",
-  "main": "index.js",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "build": "rollup -c"
