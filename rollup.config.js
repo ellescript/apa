@@ -23,6 +23,7 @@ export default {
     ],
 
     external: [
-        '@ellescript/collecty'
+        '@ellescript/collecty',
+        'string-strip-html'
     ]
 };

@@ -18,7 +18,8 @@
   "author": "Cristian Emanuelle Guzmán Suárez",
   "license": "ISC",
   "dependencies": {
-    "@ellescript/collecty": "^0.0.9"
+    "@ellescript/collecty": "^0.0.9",
+    "string-strip-html": "^13.5.3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.3",

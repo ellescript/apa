@@ -1,4 +1,5 @@
 import { Entity } from "@ellescript/collecty";
+import { stripHtml } from "string-strip-html";
 
 class APA extends Entity {
 
@@ -44,6 +45,8 @@ class APA extends Entity {
  * @returns {object}
  */
 export const apa = (citation) => {
+
+    citation = stripHtml(citation).result;
 
     citation = citation
         .replace(/[’‘]/g, "'")

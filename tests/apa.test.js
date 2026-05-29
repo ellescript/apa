@@ -32,7 +32,7 @@ describe('apa()', () => {
 
     test('converts APA object back to string', () => {
 
-        const citation = 'Martínez-Miranda, J., Aguilar-Cázares, D., Flores-Flores, A., Santos-Contreras, M. Á., López-González, J. S., Aguayo-Ortiz, R., Hernández-Pando, R., & Hernández-Luis, F.* (2026). Glyoxalase-1 inhibition leads to ferroptosis induction in lung cancer cells: A dual mechanism of action of hydroxamic acids derived from cysteine. ChemMedChem, 21(1), e202500804. DOI:10.1002/cmdc.202500804';
+        const citation = 'Martínez-Miranda, J., Aguilar-Cázares, D., Flores-Flores, A., Santos-Contreras, M. Á., López-González, J. S., Aguayo-Ortiz, R., Hernández-Pando, R., & Hernández-Luis, F.* (2026). Glyoxalase-1 inhibition leads to ferroptosis induction in lung cancer cells: A dual mechanism of action of hydroxamic acids derived from cysteine. <em>ChemMedChem, 21</em>(1), e202500804. DOI:<a href="https://doi.org/10.1002/cmdc.202500804" target="_blank" rel="noopener">10.1002/cmdc.202500804</a>';
 
         const result = apa(citation);
 
