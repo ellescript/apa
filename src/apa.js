@@ -4,7 +4,7 @@ import { stripHtml } from "string-strip-html";
 class APA extends Entity {
 
     toString() {
-        const authors = this.object.authors.join(", ");
+        const authors = this.object.authors ? this.object.authors.join(", ") : "";
 
         let citation = `${authors} (${this.object.year}). ${this.object.title}. ${this.object.journal}`;
 
@@ -41,10 +41,14 @@ class APA extends Entity {
  * apa("Martínez-Miranda, J., Aguilar-Cázares, D., Flores-Flores, A., Santos-Contreras, M. Á., López-González, J. S., Aguayo-Ortiz, R., Hernández-Pando, R., & Hernández-Luis, F.* (2026). Glyoxalase-1 inhibition leads to ferroptosis induction in lung cancer cells: A dual mechanism of action of hydroxamic acids derived from cysteine. ChemMedChem, 21(1), e202500804. DOI:10.1002/cmdc.202500804")
  * ```
  * 
- * @param {string} citation
+ * @param {string|object} citation
  * @returns {object}
  */
 export const apa = (citation) => {
+
+    if(citation instanceof Object) {
+        return new APA(citation);
+    }
 
     citation = stripHtml(citation).result;
 

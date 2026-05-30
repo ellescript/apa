@@ -65,4 +65,78 @@ describe('apa()', () => {
 
     });
 
+    test('supports creation APA citation from object', () => {
+
+        const citation = {
+            authors: [
+                'Martínez-Miranda, J.',
+                'Aguilar-Cázares, D.',
+                'Flores-Flores, A.',
+                'Santos-Contreras, M. Á.',
+                'López-González, J. S.',
+                'Aguayo-Ortiz, R.',
+                'Hernández-Pando, R.',
+                'Hernández-Luis, F.'
+            ],
+            year: 2026,
+            title: 'Glyoxalase-1 inhibition leads to ferroptosis induction in lung cancer cells: A dual mechanism of action of hydroxamic acids derived from cysteine',
+            journal: 'ChemMedChem',
+            volume: '21',
+            issue: '1',
+            number: 'e202500804',
+            doi: '10.1002/cmdc.202500804'
+        };
+
+        const result = apa(citation);
+
+        expect(result.toString()).toEqual("Martínez-Miranda, J., Aguilar-Cázares, D., Flores-Flores, A., Santos-Contreras, M. Á., López-González, J. S., Aguayo-Ortiz, R., Hernández-Pando, R., Hernández-Luis, F. (2026). Glyoxalase-1 inhibition leads to ferroptosis induction in lung cancer cells: A dual mechanism of action of hydroxamic acids derived from cysteine. ChemMedChem, 21(1), e202500804. https://doi.org/10.1002/cmdc.202500804");
+
+    })
+    test('another supports creation APA citation from object', () => {
+
+        const citation = {
+            "id_siia": 702520,
+            "title": "Naturally-derived cellulose-chitosan soft-hydrogel for sustained local docetaxel micelles delivery: from in silico modeling to preclinical validation in ovarian and glioblastoma models",
+            "journal": "Carbohydrate Polymer Technologies And Applications",
+            "scope": "Article",
+            "doi": "10.1016/j.carpta.2026.101120",
+            "sources": [
+                {
+                    "id": 1024608,
+                    "id_article": 702520,
+                    "name": "SCOPUS(SJR)",
+                    "RefPublicacion": 702520
+                },
+                {
+                    "id": 1024609,
+                    "id_article": 702520,
+                    "name": "WOS(JCR)-Core Collection",
+                    "RefPublicacion": 702520
+                },
+                {
+                    "id": 1024610,
+                    "id_article": 702520,
+                    "name": "SciELO",
+                    "RefPublicacion": 702520
+                }
+            ],
+            "article__person": {
+                "id": 2505079,
+                "id_person": 124216,
+                "id_journal": 702520,
+                "refPersona": 124216,
+                "refPublicacion": 702520
+            },
+            "status": "Aprobado",
+            "source": "SIIA",
+            "year": "2026"
+        };
+
+        const result = apa(citation);
+
+        console.log(result.toString());
+
+        expect(result.toString()).toEqual(" (2026). Naturally-derived cellulose-chitosan soft-hydrogel for sustained local docetaxel micelles delivery: from in silico modeling to preclinical validation in ovarian and glioblastoma models. Carbohydrate Polymer Technologies And Applications. https://doi.org/10.1016/j.carpta.2026.101120");
+
+    })
 });
