@@ -134,8 +134,6 @@ describe('apa()', () => {
 
         const result = apa(citation);
 
-        console.log(result.toString());
-
         expect(result.toString()).toEqual(" (2026). Naturally-derived cellulose-chitosan soft-hydrogel for sustained local docetaxel micelles delivery: from in silico modeling to preclinical validation in ovarian and glioblastoma models. Carbohydrate Polymer Technologies And Applications. https://doi.org/10.1016/j.carpta.2026.101120");
 
     })
