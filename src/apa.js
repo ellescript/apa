@@ -122,7 +122,14 @@ function extractJournal(text) {
     const afterTitle = clean.replace(/^(.*?)\.\s*/, "");
 
     // journal termina antes de ", volumen(" o antes de "."
-    const match = afterTitle.match(/^([^,\.]+)(?=,\s*\d+\(|\.)/);
+    const match = afterTitle.match(/^(.*?)(?=,\s*\d+\s*\()/);
 
-    return match ? match[1].trim() : null;
+    if (match) {
+        return match[1].trim();
+    }
+
+    // Si no hay volumen(issue), intenta obtener hasta el punto final
+    const fallback = afterTitle.match(/^(.*?)\.$/);
+
+    return fallback ? fallback[1].trim() : null;
 }

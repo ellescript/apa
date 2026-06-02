@@ -137,4 +137,17 @@ describe('apa()', () => {
         expect(result.toString()).toEqual(" (2026). Naturally-derived cellulose-chitosan soft-hydrogel for sustained local docetaxel micelles delivery: from in silico modeling to preclinical validation in ovarian and glioblastoma models. Carbohydrate Polymer Technologies And Applications. https://doi.org/10.1016/j.carpta.2026.101120");
 
     })
+
+    test('journal is retrieved correctly', () => {
+
+        const citation = "Alvarez-Amparán, M. A.*, Chacon-Argaez, U., & Cedeño-Caero, L.* (2026). The effect of electronic and optical properties on the kinetic photocatalytic model of methyl blue degradation. Molecules (Basel, Switzerland), 31(5), 782. DOI:10.3390/molecules31050782"
+
+        const result = apa(citation);
+
+        expect(result.object.journal).toBe('Molecules (Basel, Switzerland)');
+        expect(result.object.doi).toBe('10.3390/molecules31050782');
+        expect(result.object.volume).toBe('31');
+        expect(result.object.issue).toBe('5');
+        expect(result.object.number).toBe('782');
+    })
 });
