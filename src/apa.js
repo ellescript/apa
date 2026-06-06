@@ -4,9 +4,19 @@ import { stripHtml } from "string-strip-html";
 class APA extends Entity {
 
     toString() {
-        const authors = this.object.authors ? this.object.authors.join(", ") : "";
+        const authors = this.object.authors
+            ? this.object.authors.join(", ")
+            : "";
 
-        let citation = `${authors} (${this.object.year}). ${this.object.title}. ${this.object.journal}`;
+        let citation = `${authors} (${this.object.year}).`;
+
+        if (this.object.title) {
+            citation += ` ${this.object.title.replace(/\.$/, "")}.`;
+        }
+
+        if (this.object.journal) {
+            citation += ` ${this.object.journal}`;
+        }
 
         if (this.object.volume) {
             citation += `, ${this.object.volume}`;
@@ -25,10 +35,11 @@ class APA extends Entity {
         }
 
         if (this.object.doi) {
+            citation = citation.replace(/\.+$/, "");
             citation += `. https://doi.org/${this.object.doi}`;
         }
 
-        return `${citation}`;
+        return citation;
     }
 
 }
@@ -46,7 +57,7 @@ class APA extends Entity {
  */
 export const apa = (citation) => {
 
-    if(citation instanceof Object) {
+    if (citation instanceof Object) {
         return new APA(citation);
     }
 
@@ -79,7 +90,10 @@ export const apa = (citation) => {
 
     // 5. Title (hasta antes del journal)
     const titleMatch = afterYear.match(/^(.*?)\.\s*[A-Z]/);
-    result.title = titleMatch ? titleMatch[1].trim() : null;
+
+    result.title = titleMatch
+        ? titleMatch[1].trim()
+        : afterYear.replace(/\.$/, "").trim();
 
     // 6. Journal (después del título)
     result.journal = extractJournal(afterYear);

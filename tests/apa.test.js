@@ -150,4 +150,13 @@ describe('apa()', () => {
         expect(result.object.issue).toBe('5');
         expect(result.object.number).toBe('782');
     })
+    
+    test('aburto', () => {
+
+        const citation = "Diaz-Herrera, P., Amezcua-Allieri, M. A., Vega, E., Hernández-Martínez, E., & Aburto, J. (2026). Decarbonization of sugarcane refinery through bioethanol production and CHP generation with carbon capture and storage (BECCS). DOI: 10.2139/ssrn.6251010"
+
+        const result = apa(citation);
+
+        expect(result.toString()).toBe('Diaz-Herrera, P., Amezcua-Allieri, M. A., Vega, E., Hernández-Martínez, E., Aburto, J. (2026). Decarbonization of sugarcane refinery through bioethanol production and CHP generation with carbon capture and storage (BECCS). https://doi.org/10.2139/ssrn.6251010');
+    })
 });
